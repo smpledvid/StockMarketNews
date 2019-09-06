@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { SearchBar } from './components/searchBar'
 import { SearchValues } from './components/searchValues'
-
-import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-
 
 const Search = () => {
     const [stock, setStock] = useState("");
@@ -27,14 +24,12 @@ const Search = () => {
     
     return (
         <div>
-            <TextField
-                id="standard-name"
-                label="Stock "
-                margin="normal"
-                value={stock}
-                onKeyDown={handlePressEnter}
-                onChange={e => setStock(e.target.value)}
+            <SearchBar 
+                pressEnter={handlePressEnter}
+                stock={stock}
+                setStock={setStock}
             />
+
             <SearchValues 
                 stocks={stocks}
                 deleteStock={handleDeleteChip}
