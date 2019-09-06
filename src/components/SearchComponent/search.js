@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { SearchValues } from './components/searchValues'
 
@@ -18,6 +18,12 @@ const Search = () => {
             setStock("");
         }
     }
+
+    const handleDeleteChip = (deleteStock) => {
+        stocks.splice(stocks.indexOf(deleteStock), 1);
+        setStocks([...stocks]);
+    }
+
     
     return (
         <div>
@@ -31,7 +37,7 @@ const Search = () => {
             />
             <SearchValues 
                 stocks={stocks}
-                setStocks={setStocks}
+                deleteStock={handleDeleteChip}
             />
         </div>
     )

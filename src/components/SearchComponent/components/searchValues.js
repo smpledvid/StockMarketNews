@@ -1,11 +1,8 @@
 import React from 'react'
 import Chip from '@material-ui/core/Chip';
 
-export const SearchValues = ({stocks, setStocks}) => {
-    const handleDeleteChip = () => {
-        console.log("YOU DIDNT WRITE THE DELETE YET")
-    }
-
+export const SearchValues = ({stocks, deleteStock}) => {
+    
     return (
         <div>
             {stocks.map( stock => {
@@ -13,7 +10,7 @@ export const SearchValues = ({stocks, setStocks}) => {
                     <div key={stock}>
                         <Chip
                             label={stock}
-                            onDelete={handleDeleteChip}
+                            onDelete={() => deleteStock(stock)}
                         />
                     </div>
                 );
