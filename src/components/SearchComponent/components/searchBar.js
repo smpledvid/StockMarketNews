@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 
 export const SearchBar = ({setStock, stock, pressEnter}) => {
     return (
-        <TextField
+        <TextField style={{width:"100%"}}
                 id="standard-name"
                 label="Stock "
                 margin="normal"

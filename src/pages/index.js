@@ -22,6 +22,9 @@ const IndexPage = () => (
         <Grid item xs={8}>
           WHAT IS GOOD MY DUDE
         </Grid>
+        <Grid item xs={12}>
+          COOL STUFF GOES HERE
+        </Grid>
       </Grid>
     </div>
     {/* <Link to="/page-2/">Go to page 2</Link> */}
