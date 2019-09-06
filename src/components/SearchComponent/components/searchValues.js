@@ -7,12 +7,12 @@ export const SearchValues = ({stocks, deleteStock}) => {
         <div>
             {stocks.map( stock => {
                 return (
-                    <div key={stock}>
+                    <span style={{float: "left"}} key={stock}>
                         <Chip
                             label={stock}
                             onDelete={() => deleteStock(stock)}
                         />
-                    </div>
+                    </span>
                 );
             })}
         </div>
