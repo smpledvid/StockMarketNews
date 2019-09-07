@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { SearchBar } from './components/searchBar'
 import { SearchValues } from './components/searchValues'
 
+import { useStockValueApi } from '../../api/useStockValueApi'
+
 const Search = () => {
     const [stock, setStock] = useState("");
     const [stocks, setStocks] = useState([]);
@@ -13,6 +15,7 @@ const Search = () => {
                 setStocks([...stocks, stock]);
             }
             setStock("");
+            useStockValueApi(stock)
         }
     }
 
