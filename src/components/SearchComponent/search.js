@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react'
+ import React, { useState, useEffect } from 'react'
 
 import { SearchBar } from './components/searchBar'
 import { SearchValues } from './components/searchValues'
 
-import { useStockValueApi } from '../../api/useStockValueApi'
+// import { useStockValueApi } from '../../api/useStockValueApi'
 
-const Search = () => {
+const Search = ({stocks, setStocks}) => {
     const [stock, setStock] = useState("");
-    const [stocks, setStocks] = useState([]);
     
     const handlePressEnter = (e) => {
         if(e.key === "Enter") {
             if(!stocks.includes(stock)) {
-                setStocks([...stocks, stock]);
+                setStocks([...stocks, stock])
             }
             setStock("");
-            useStockValueApi(stock)
+            // useStockValueApi(stock)
         }
     }
 
