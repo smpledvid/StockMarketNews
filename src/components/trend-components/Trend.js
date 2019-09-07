@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { getValues } from '../../api/useStockValueApi'
 
-const Trend = ({stock}) => {
+const Trend = ({stock, date}) => {
     
     const [opening, setOpening] = useState(false);
     const [closing, setClosing] = useState(false);
@@ -13,7 +13,7 @@ const Trend = ({stock}) => {
     const parseData = () => {
 
         (async () => {
-            const [openPrice, closePrice] = await getValues(stock, '2019-09-06')
+            const [openPrice, closePrice] = await getValues(stock, date)
             setOpening(openPrice);
             setClosing(closePrice);
         })()
@@ -25,7 +25,7 @@ const Trend = ({stock}) => {
             display:"center",
             color: parseFloat(opening) < parseFloat(closing) ? "green" : "red"
         }}>
-            {stock} - {opening} - {closing}
+            {stock} | {opening} | {closing}
         </ul>
     )
 }
