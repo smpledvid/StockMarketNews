@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { getHourlyValues } from '../../api/useStockValueApi'
+import { getHourlyValues } from '../../api/mockUseStockValueApi'
 
 const HourlyTrend = ({stock}) => {
     

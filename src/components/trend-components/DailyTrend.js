@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { getDailyValues } from '../../api/useStockValueApi'
+import { getDailyValues } from '../../api/mockUseStockValueApi'
 
 const DailyTrend = ({stock}) => {
     
