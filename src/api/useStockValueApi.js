@@ -3,8 +3,6 @@ const TIME_SERIES_DAILY = "Time Series (Daily)";
 const TIME_SERIES_HOURLY = "Time Series (60min)";
 const OPEN_KEY = "1. open";
 const CLOSE_KEY = "4. close";
-// const API_KEY = "U3NC7OY1RG617V1P"; // david's key
-const API_KEY_2 = "5IUL2YGS8MZ0VW5C" // michael's key
 
 const createDailyApiUrl = (stockName, key) => {
     return `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockName}&apikey=${key}`;
@@ -14,17 +12,8 @@ const createHourlyApiUrl = (stockName, key) => {
     return `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockName}&apikey=${key}&interval=60min`;
 }
 
-// export const useStockValueApi = (stockName) => {
-//     console.log(stockName);
-//     return fetch(createApiUrl(TIME_SERIES_DAILY, stockName, API_KEY)).then(response =>
-//         response.json().then(data => {
-//             console.log(data["Time Series (Daily)"]);
-//         })
-//     );
-// }
-
 export const getDailyValues = async (stockName) => {
-    const response = await fetch(createDailyApiUrl(stockName, API_KEY_2));
+    const response = await fetch(createDailyApiUrl(stockName, process.env.API_KEY));
     const json = await response.json();
 
     if (!json.hasOwnProperty(TIME_SERIES_DAILY)) {
@@ -49,7 +38,7 @@ export const getDailyValues = async (stockName) => {
 }
 
 export const getHourlyValues = async (stockName) => {
-    const response = await fetch(createHourlyApiUrl(stockName, API_KEY_2));
+    const response = await fetch(createHourlyApiUrl(stockName, process.env.API_KEY));
     const json = await response.json();
 
     if (!json.hasOwnProperty(TIME_SERIES_HOURLY)) {
