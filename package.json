@@ -25,17 +25,15 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
+    "build": "gatsby build",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "postinstall": "gatsby build"
   },
   "repository": {
     "type": "git",
@@ -43,5 +41,9 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "engines": {
+    "node": "13.1.0",
+    "npm": "6.12.1"
   }
 }
