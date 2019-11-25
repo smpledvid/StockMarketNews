@@ -20,6 +20,11 @@ const IndexPage = () => {
     <div className={styles.titleContainer}>
       <h1>Stock Market News</h1>
       <Grid container spacing={3}>
+        <Grid item xs={12}>
+            To use this app please enter the stock symbol below in the search bar
+            <br/>
+            Due to resource constraints we are limited to 5 requests/min or 500 requests/day
+        </Grid>
         <Grid item xs={4}>
           <Search stocks={stocks} setStocks={setStocks}/>
         </Grid>
@@ -27,11 +32,10 @@ const IndexPage = () => {
          <Trends stocks={stocks} />
         </Grid>
         <Grid item xs={12}>
-          COOL STUFF GOES HERE
+            Source code is available on <a href="https://github.com/miyee/StockMarketNews" target="_blank">Github</a>
         </Grid>
       </Grid>
     </div>
-    {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>)
 }
 
