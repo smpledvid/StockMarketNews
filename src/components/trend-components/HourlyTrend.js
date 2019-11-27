@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import Card from '@material-ui/core/Card';
+
 import { getHourlyValues } from '../../api/useStockValueApi'
 
 const HourlyTrend = ({stock}) => {
@@ -30,10 +32,15 @@ const HourlyTrend = ({stock}) => {
             display:"center",
             color: parseFloat(startPrice) < parseFloat(endPrice) ? "green" : "red"
         }}>
-            {stock} <br/>
-            --------------------------------------------- <br/>
-            {startPrice} ({startHour}) <br/>
-            {endPrice} ({endHour})
+            <Card style={{
+                display:"center",
+                backgroundColor:"#ededed",
+                color: parseFloat(startPrice) < parseFloat(endPrice) ? "green" : "red"
+            }}>
+                <b>{stock}</b><br/>
+                {startPrice} ({startHour})<br/>
+                {endPrice} ({endHour})
+            </Card>
         </li>
     )
 }

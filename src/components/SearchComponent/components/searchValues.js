@@ -8,10 +8,13 @@ export const SearchValues = ({stocks, deleteStock}) => {
             {stocks.map( stock => {
                 return (
                     <span style={{float: "left"}} key={stock}>
-                        <Chip
-                            label={stock}
-                            onDelete={() => deleteStock(stock)}
-                        />
+                        <b>
+                            <Chip
+                                style={{backgroundColor:"#ededed"}}
+                                label={stock}
+                                onDelete={() => deleteStock(stock)}
+                            />
+                        </b>
                     </span>
                 );
             })}

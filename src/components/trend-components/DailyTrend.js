@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import Card from '@material-ui/core/Card';
+
 import { getDailyValues } from '../../api/useStockValueApi'
 
 const DailyTrend = ({stock}) => {
@@ -23,14 +25,16 @@ const DailyTrend = ({stock}) => {
 
 
     return (
-        <li style={{
-            display:"center",
-            color: parseFloat(opening) < parseFloat(closing) ? "green" : "red"
-        }}>
-            {stock} ({latestDate}) <br/>
-            --------------------------------------------- <br/>
-            {opening} (OPEN) <br/>
-            {closing} (CLOSE)
+        <li>
+            <Card style={{
+                display:"center",
+                backgroundColor:"#ededed",
+                color: parseFloat(opening) < parseFloat(closing) ? "green" : "red"
+            }}>
+                <b>{stock} ({latestDate})</b><br/>
+                {opening} (OPEN)<br/>
+                {closing} (CLOSE)
+            </Card>
         </li>
     )
 }

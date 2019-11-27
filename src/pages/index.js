@@ -21,8 +21,7 @@ const IndexPage = () => {
       <h1>Stock Market News</h1>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-            To use this app please enter the stock symbol below in the search bar
-            <br/>
+            To use this app please enter the stock symbol below in the search bar<br/>
             Due to resource constraints we are limited to 5 requests/min or 500 requests/day
         </Grid>
         <Grid item xs={4}>

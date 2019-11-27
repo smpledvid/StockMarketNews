@@ -8,15 +8,17 @@ const Search = ({stocks, setStocks}) => {
     
     const handlePressEnter = (e) => {
         if(e.key === "Enter") {
-            if(!stocks.includes(stock)) {
-                setStocks([...stocks, stock])
+            if(stock.trim() !== "" && !stocks.includes(stock.toUpperCase())) {
+                setStocks([...stocks, stock.toUpperCase()])
+            } else {
+                // do a quick ltttle thing
             }
             setStock("");
         }
     }
 
     const handleDeleteChip = (deleteStock) => {
-        stocks.splice(stocks.indexOf(deleteStock), 1);
+        stocks.splice(stocks.indexOf(deleteStock.toUpperCase()), 1);
         setStocks([...stocks]);
     }
 
