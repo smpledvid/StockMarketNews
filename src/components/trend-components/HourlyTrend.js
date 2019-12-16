@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Card from '@material-ui/core/Card';
+import { LineChart } from 'react-chartkick';
+// import 'chart.js';
 
 import { getHourlyValues } from '../../api/useStockValueApi'
 
@@ -9,6 +11,7 @@ const HourlyTrend = ({stock}) => {
     const [startPrice, setStartPrice] = useState(false);
     const [endHour, setEndHour] = useState(false);
     const [endPrice, setEndPrice] = useState(false);
+    const [priceMap, setPriceMap] = useState(false);
 
 
     useEffect(() => {
@@ -18,11 +21,12 @@ const HourlyTrend = ({stock}) => {
     const parseData = () => {
 
         (async () => {
-            const [startingHour, startingPrice, endingHour, endingPrice] = await getHourlyValues(stock)
+            const [startingHour, startingPrice, endingHour, endingPrice, priceMap] = await getHourlyValues(stock)
             setStartHour(startingHour);
             setStartPrice(startingPrice);
             setEndHour(endingHour);
             setEndPrice(endingPrice);
+            setPriceMap(priceMap);
         })()
     }
 
@@ -41,6 +45,7 @@ const HourlyTrend = ({stock}) => {
                 {startPrice} ({startHour})<br/>
                 {endPrice} ({endHour})
             </Card>
+            <LineChart data={priceMap} curve={false} prefix="$" messages={{empty: "No data"}} />
         </li>
     )
 }
