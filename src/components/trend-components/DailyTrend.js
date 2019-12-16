@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Card from '@material-ui/core/Card';
 import { LineChart } from 'react-chartkick';
-// import 'chart.js';
+import 'chart.js';
 
 import { getDailyValues } from '../../api/useStockValueApi'
 
