@@ -6,8 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Layout from "../components/layout"
-import Search from "../components/search-components/search"
-// import Trends from "../components/trend-components/Trends"
+import Search from "../components/search-components/search";
+import News from "../components/news-components/news";
+import Trends from "../components/trend-components/Trends";
+
 import SEO from "../components/seo"
 
 import styles from './index.module.scss'
@@ -37,7 +39,7 @@ TabPanel.propTypes = {
 
 const MainPage = () => {
     const [stocks, setStocks] = useState([]);
-    const [currentTab, setTab] = useState('News');
+    const [currentTab, setTab] = useState(0);
 
     // Handles setting the tab value on change
     const handleTabsChange = (event, newTabValue) => {
@@ -69,12 +71,12 @@ const MainPage = () => {
                         <Tab label="News" />
                         <Tab label="Trends" />
                     </Tabs>
-                    {/* <Trends stocks={stocks} /> */}
+                    
                     <TabPanel value={currentTab} index={0}>
-                        Item One
+                        <News stocks={stocks}/>
                     </TabPanel>
                     <TabPanel value={currentTab} index={1}>
-                        Item Two
+                        <Trends stocks={stocks} />
                     </TabPanel>
                 </Grid>
                 <Grid item xs={12}>
