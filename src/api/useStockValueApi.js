@@ -33,7 +33,14 @@ export const getDailyValues = async (stockName) => {
     console.log(stockName + " | OPEN | " + opening)
     console.log(stockName + " | CLOSE | " + closing)
 
-    return [latestDate, opening, closing];
+    // Get all the values into priceMap
+    var priceMap = {};
+    
+    for (var i in dailyValues) {
+        priceMap[i] = parseFloat(dailyValues[i][CLOSE_KEY]);
+    }
+
+    return [latestDate, opening, closing, priceMap];
 
 }
 
@@ -55,7 +62,14 @@ export const getHourlyValues = async (stockName) => {
     console.log(stockName + " | " + startHour + " | " + startPrice)
     console.log(stockName + " | " + endHour + " | " + endPrice)
 
-    return [startHour, startPrice, endHour, endPrice];
+    // Get all the values into priceMap
+    var priceMap = {};
+    
+    for (var i in hourlyValues) {
+        priceMap[i] = parseFloat(hourlyValues[i][CLOSE_KEY]);
+    }
+
+    return [startHour, startPrice, endHour, endPrice, priceMap];
 
 }
 
