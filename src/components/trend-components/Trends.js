@@ -32,7 +32,7 @@ const Trends = ({stocks}) => {
                     />
                 </RadioGroup>
             </FormControl>
-            <ul style={{'list-style-type':'none'}}>
+            <ul style={{'listStyleType':'none'}}>
                 {
                     stocks.map( stock => {
                         if (interval === 'daily') {
